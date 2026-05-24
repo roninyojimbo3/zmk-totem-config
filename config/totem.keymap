@@ -88,17 +88,18 @@
             // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
             // ┃CAPS/CTRL  ┃     Z     ┃     X     ┃     C     ┃     V     ┃     B     ┃   ┃     N     ┃     M     ┃     ,     ┃     .     ┃     /     ┃     '     ┃
             // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃  TAB/NAV  ┃   BSPC    ┃  SPC/NUM  ┃   ┃   ENTER   ┃   SPACE   ┃  DEL/ESC  ┃
+            //                                     ┃  TAB/BT   ┃ BSPC/NUM  ┃    NAV    ┃   ┃   ENTER   ┃   SPACE   ┃  DEL/ESC  ┃
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
             //
             // Thumb notation is tap / hold:
-            // TAB/NAV = tap Tab, hold Nav; SPC/NUM = tap Space, hold Num; DEL/ESC = tap Delete, hold Escape.
+            // TAB/BT = tap Tab, hold BT; BSPC/NUM = tap Backspace, hold Num;
+            // NAV = Nav/Mouse layer only; DEL/ESC = tap Delete, hold Escape.
 
             bindings = <
                            &kp Q                    &kp W       &kp E        &kp R          &kp T            &kp Y      &kp U        &kp I        &kp O       &kp P
                            &mt LGUI A               &mt LALT S  &mt LCTRL D  &mt LSHFT F    &kp G            &kp H      &mt RSHFT J  &mt RCTRL K  &mt RALT L  &mt RGUI SEMI
 &mt LEFT_CONTROL CAPSLOCK  &kp Z                    &kp X       &kp C        &kp V          &kp B            &kp N      &kp M        &kp COMMA    &kp DOT     &kp SLASH      &kp APOS
-                                                   &lt NAV TAB   &kp BACKSPACE &lt NUM SPACE &kp ENTER        &kp SPACE  &mt ESC DEL
+                                                   &lt BT TAB    &lt NUM BACKSPACE &mo NAV       &kp ENTER        &kp SPACE  &mt ESC DEL
             >;
         };
 
@@ -133,14 +134,14 @@
             // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
             // ┃   PASS    ┃   PREV    ┃ PLAY/PAUSE┃   NEXT    ┃   VOL-    ┃   VOL+    ┃   ┃           ┃MID CLICK  ┃    MB4    ┃    MB5    ┃SCROLL LEFT┃SCROLL RGHT┃
             // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃    PASS   ┃    PASS   ┃    PASS   ┃   ┃    PASS   ┃    PASS   ┃     BT    ┃
+            //                                     ┃    PASS   ┃    PASS   ┃    PASS   ┃   ┃    PASS   ┃    PASS   ┃    PASS   ┃
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
         &none       &none              &kp UP_ARROW    &none              &kp HOME           &kp PG_UP      &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &msc SCRL_UP
         &none       &kp LEFT           &kp DOWN        &kp RIGHT          &kp END            &kp PAGE_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN
 &trans  &kp K_PREV  &kp K_PLAY_PAUSE  &kp K_NEXT      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &none          &mkp MCLK       &mkp MB4        &mkp MB5         &msc SCRL_LEFT  &msc SCRL_RIGHT
-                                      &trans           &trans             &trans             &trans         &trans          &mo BT
+                                      &trans           &trans             &trans             &trans         &trans          &trans
             >;
         };
 
