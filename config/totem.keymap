@@ -181,29 +181,29 @@
             label = "BT";
 
             //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-            //             ┃ CTRLALTDEL┃10.YOJIMBO ┃  OUT TOG  ┃           ┃           ┃   ┃ CLR ALL BT┃           ┃           ┃           ┃BOOTLOADER ┃
+            //             ┃ CTRLALTDEL┃10.YOJIMBO ┃  OUT USB  ┃  OUT BT   ┃           ┃   ┃ CLR ALL BT┃           ┃           ┃           ┃BOOTLOADER ┃
             //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
             //             ┃    BT6    ┃    BT7    ┃    BT8    ┃    BT9    ┃   BT10    ┃   ┃ CLR CUR BT┃           ┃           ┃           ┃           ┃
             // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-            // ┃    BT1    ┃    BT2    ┃    BT3    ┃    BT4    ┃    BT5    ┃           ┃   ┃           ┃           ┃           ┃           ┃ SYS RESET ┃STUDIO UNLK┃
+            // ┃           ┃    BT1    ┃    BT2    ┃    BT3    ┃    BT4    ┃    BT5    ┃   ┃           ┃           ┃           ┃           ┃ SYS RESET ┃STUDIO UNLK┃
             // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
             //                                     ┃    PASS   ┃    PASS   ┃    PASS   ┃   ┃    PASS   ┃    PASS   ┃    PASS   ┃
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
             //
             // All ten Bluetooth profile selectors stay on the left half:
-            // outer-left = BT1, Z = BT2, X = BT3, C = BT4, V = BT5;
+            // Z = BT1, X = BT2, C = BT3, V = BT4, B = BT5;
             // A = BT6, S = BT7, D = BT8, F = BT9, G = BT10.
             //
             // Required controls:
             // Y position = clear all Bluetooth profiles
             // H position = clear only the currently selected Bluetooth profile
 
-            bindings = <
-              &cad_macro     &username_macro  &out OUT_TOG  &none         &none         &bt BT_CLR_ALL  &none         &none         &none         &bootloader
-              &bt BT_SEL 5   &bt BT_SEL 6     &bt BT_SEL 7  &bt BT_SEL 8  &bt BT_SEL 9  &bt BT_CLR      &none         &none         &none         &none
-&bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4  &none          &none         &none         &none         &none         &sys_reset  &studio_unlock
-                                            &trans         &trans        &trans        &trans          &trans        &trans
-            >;
+          bindings = <
+      &cad_macro  &username_macro  &out OUT_USB  &out OUT_BLE  &none          &bt BT_CLR_ALL  &none   &none   &none   &bootloader
+      &bt BT_SEL 5  &bt BT_SEL 6   &bt BT_SEL 7  &bt BT_SEL 8  &bt BT_SEL 9   &bt BT_CLR      &none   &none   &none   &none
+&trans       &bt BT_SEL 0      &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3   &bt BT_SEL 4    &none   &none   &none   &none   &sys_reset  &studio_unlock
+                                      &trans  &trans        &trans         &trans          &trans  &trans
+>;
         };
     };
 };
