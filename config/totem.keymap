@@ -61,10 +61,7 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-    combos {
+       combos {
         compatible = "zmk,combos";
 
         combo_game_toggle {
@@ -209,8 +206,8 @@
 &trans       &bt BT_SEL 0      &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3   &bt BT_SEL 4    &none   &none   &none   &none   &sys_reset  &studio_unlock
                                       &trans  &trans        &trans         &trans          &trans  &trans
 >;
-        };
-    };
+        }; 
+
         game_layer {
             label = "GAME";
 
