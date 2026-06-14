@@ -238,5 +238,6 @@
                 &kp LSHIFT     &kp Z          &kp X          &kp C          &kp V      &kp B     &kp LALT     &kp P        &kp M        &kp I        &kp F        &kp ESC
                                                                       &kp LCTRL    &kp BACKSPACE &kp SPACE    &kp ENTER    &kp TAB      &kp DEL
             >;
-        };
+        };  
+    };
 };
