@@ -121,7 +121,7 @@
             // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
             // ┃CAPS/CTRL  ┃     Z     ┃     X     ┃     C     ┃     V     ┃     B     ┃   ┃     N     ┃     M     ┃     ,     ┃     .     ┃     /     ┃     '     ┃
             // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃  TAB/NAV  | BSPC/NUM  | DEL/ESC   |   | ENTER     | SPACE     | SHIFT     ┃
+            //                                     ┃   DEL/ESC |  TAB/NAV  | BSPC/NUM  |   |  SPACE    |   SHIFT   | ENTER     ┃
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
             //
             // Thumb notation is tap / hold:
@@ -132,7 +132,7 @@
                            &kp Q                    &kp W       &kp E        &kp R          &kp T            &kp Y      &kp U        &kp I        &kp O       &kp P
                            &hml LGUI A               &hml LALT S  &hml LCTRL D  &hml LSHIFT F    &kp G            &kp H      &hmr RSHIFT J  &hmr RCTRL K  &hmr RALT L  &hmr RGUI SEMI
 &mt LEFT_CONTROL CAPSLOCK  &kp Z                    &kp X       &kp C        &kp V          &kp B            &kp N      &kp M        &kp COMMA    &kp DOT     &kp SLASH      &kp APOS
-                                                   &lt NAV TAB     &lt NUM BACKSPACE     &mt ESC DEL       &kp ENTER        &kp SPACE     &kp LSHIFT
+                                                   &mt ESC DEL     &lt NAV TAB     &lt NUM BACKSPACE      &kp SPACE     &kp LSHIFT     &kp ENTER
             >;
         };
 
