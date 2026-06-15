@@ -64,9 +64,9 @@
        combos {
         compatible = "zmk,combos";
 
-        combo_game_toggle {
-            timeout-ms = <50>;
-            key-positions = <20 31>;
+               combo_game_toggle {
+            timeout-ms = <120>;
+            key-positions = <34 35>;
             bindings = <&tog GAME>;
         };
     };
@@ -121,18 +121,18 @@
             // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
             // ┃CAPS/CTRL  ┃     Z     ┃     X     ┃     C     ┃     V     ┃     B     ┃   ┃     N     ┃     M     ┃     ,     ┃     .     ┃     /     ┃     '     ┃
             // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃  TAB/NAV  ┃ BSPC/SHIFT┃    NUM    ┃   ┃   ENTER   ┃   SPACE   ┃  DEL/ESC  ┃
+            //                                     ┃  TAB/NAV  | BSPC/NUM  | DEL/ESC   |   | ENTER     | SPACE     | SHIFT     ┃
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
             //
             // Thumb notation is tap / hold:
-            // TAB/NAV = tap Tab, hold NAV; BSPC/SHIFT = tap Backspace, hold SHIFT;
-            // NUM = Number layer only; DEL/ESC = tap Delete, hold Escape.
+            // TAB/NAV = tap Tab, hold NAV; BSPC/NUM = tap Backspace, hold NUM;
+            // DEL/ESC = tap Delete, hold Escape; SHIFT = normal Shift.
 
             bindings = <
                            &kp Q                    &kp W       &kp E        &kp R          &kp T            &kp Y      &kp U        &kp I        &kp O       &kp P
                            &hml LGUI A               &hml LALT S  &hml LCTRL D  &hml LSHIFT F    &kp G            &kp H      &hmr RSHIFT J  &hmr RCTRL K  &hmr RALT L  &hmr RGUI SEMI
 &mt LEFT_CONTROL CAPSLOCK  &kp Z                    &kp X       &kp C        &kp V          &kp B            &kp N      &kp M        &kp COMMA    &kp DOT     &kp SLASH      &kp APOS
-                                                   &lt NAV TAB     &mt LSHIFT BACKSPACE &mo NUM       &kp ENTER        &kp SPACE  &mt ESC DEL
+                                                   &lt NAV TAB     &lt NUM BACKSPACE     &mt ESC DEL       &kp ENTER        &kp SPACE     &kp LSHIFT
             >;
         };
 
@@ -208,36 +208,39 @@
 >;
         }; 
 
-        game_layer {
+              game_layer {
             label = "GAME";
 
             //
             //              ┌──────┬──────┬──────┬──────┬──────┐              ┌──────┬──────┬──────┬──────┬──────┐
-            //              │  Q   │  W   │  E   │  R   │  T   │              │  1   │  2   │  3   │  4   │  5   │
+            //              │  Q   │  W   │  E   │  R   │  T   │              │  7   │  8   │  9   │  0   │ ESC  │
             //              ├──────┼──────┼──────┼──────┼──────┤              ├──────┼──────┼──────┼──────┼──────┤
-            //              │  A   │  S   │  D   │  F   │  G   │              │  6   │  7   │  8   │  9   │  0   │
+            //              │  A   │  S   │  D   │  F   │  G   │              │  4   │  5   │  6   │  I   │  UP  │
             //       ┌──────┼──────┼──────┼──────┼──────┼──────┤              ├──────┼──────┼──────┼──────┼──────┼──────┐
-            //       │SHIFT │  Z   │  X   │  C   │  V   │  B   │              │ ALT  │  P   │  M   │  I   │  F   │ ESC  │
+            //       │SHIFT │  Z   │  X   │  C   │  V   │  B   │              │  1   │  2   │  3   │ LEFT │ DOWN │RGHT  │
             //       └──────┴──────┴──────┴──────┴──────┴──────┘              └──────┴──────┴──────┴──────┴──────┴──────┘
             //                            ┌──────┬──────┬──────┐      ┌──────┬──────┬──────┐
-            //                            │CTRL  │BACKSP│SPACE │      │ENTER │ TAB  │DELETE│
+            //                            │CTRL  │BSPC  │SPACE │      │ENTER │ ALT  │DEL   │
             //                            └──────┴──────┴──────┘      └──────┴──────┴──────┘
             //
             // GAME notes:
             // - No HRMs.
             // - No mod-taps.
             // - No layer-taps.
-            // - WASD stays in normal position.
-            // - Left thumbs: Ctrl / Backspace / Space.
-            // - Toggle GAME with left orphan + right orphan combo.
-            //
+            // - Q and Z are kept.
+            // - WASD stays normal.
+            // - Right side is numpad-ish plus arrows/menu keys.
+            // - Arrow shape:
+            //       UP
+            //   LEFT DOWN RIGHT
+            // - GAME toggle combo: DEL/ESC + ENTER physical thumbs.
 
             bindings = <
-                &kp Q          &kp W          &kp E          &kp R          &kp T              &kp N1       &kp N2       &kp N3       &kp N4       &kp N5
-                &kp A          &kp S          &kp D          &kp F          &kp G              &kp N6       &kp N7       &kp N8       &kp N9       &kp N0
-                &kp LSHIFT     &kp Z          &kp X          &kp C          &kp V      &kp B     &kp LALT     &kp P        &kp M        &kp I        &kp F        &kp ESC
-                                                                      &kp LCTRL    &kp BACKSPACE &kp SPACE    &kp ENTER    &kp TAB      &kp DEL
+                &kp Q       &kp W          &kp E          &kp R          &kp T          &kp N7       &kp N8       &kp N9       &kp N0       &kp ESC
+                &kp A       &kp S          &kp D          &kp F          &kp G          &kp N4       &kp N5       &kp N6       &kp I        &kp UP
+                &kp LSHIFT  &kp Z          &kp X          &kp C          &kp V      &kp B          &kp N1       &kp N2       &kp N3       &kp LEFT     &kp DOWN     &kp RIGHT
+                                                                  &kp LCTRL    &kp BACKSPACE &kp SPACE      &kp ENTER    &kp LALT     &kp DEL
             >;
-        };  
+        };
     };
 };
