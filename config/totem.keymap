@@ -25,6 +25,7 @@
  * Retained for the outer Caps/Ctrl binding and the current right-thumb
  * tap/hold binding. Letter HRMs use HML/HMR below to match the Typeractive.
  */
+
 &mt {
     quick-tap-ms = <100>;
     global-quick-tap;
@@ -38,6 +39,7 @@
          * Home-row mods matched to the Typeractive Corne.
          * Applied only to A/S/D/F and J/K/L/; on the Base layer.
          */
+
         hml: homerow_mod_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HML";
@@ -61,13 +63,33 @@
         };
     };
 
-       combos {
+    combos {
         compatible = "zmk,combos";
 
-               combo_game_toggle {
+        combo_game_toggle {
             timeout-ms = <120>;
-            key-positions = <34 35>;
+            key-positions = <33 32 34>;
             bindings = <&tog GAME>;
+        };
+
+        combo_bt_layer {
+            bindings = <&mo 3>;
+            key-positions = <35 37 36>;
+        };
+
+        Dvorak {
+            bindings = <&tog 6>;
+            key-positions = <4 5>;
+        };
+
+        Colemak {
+            bindings = <&tog 7>;
+            key-positions = <14 15>;
+        };
+
+        workman {
+            bindings = <&tog 8>;
+            key-positions = <25 26>;
         };
     };
 
@@ -92,9 +114,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LCTRL &kp LALT>,
-                <&macro_tap &kp DEL>,
-                <&macro_release &kp LCTRL &kp LALT>;
+                <&macro_press>,
+                <&kp LCTRL &kp LALT>,
+                <&macro_tap>,
+                <&kp DEL>,
+                <&macro_release>,
+                <&kp LCTRL &kp LALT>;
         };
 
         username_macro: username_macro {
@@ -103,8 +128,7 @@
             #binding-cells = <0>;
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings =
-                <&kp N1 &kp N0 &kp DOT &kp LS(Y) &kp O &kp J &kp I &kp M &kp B &kp O>;
+            bindings = <&kp N1 &kp N0 &kp DOT &kp LS(Y) &kp O &kp J &kp I &kp M &kp B &kp O>;
         };
     };
 
@@ -129,10 +153,10 @@
             // DEL/ESC = tap Delete, hold Escape; SHIFT = normal Shift.
 
             bindings = <
-                           &kp Q                    &kp W       &kp E        &kp R          &kp T            &kp Y      &kp U        &kp I        &kp O       &kp P
-                           &hml LGUI A               &hml LALT S  &hml LCTRL D  &hml LSHIFT F    &kp G            &kp H      &hmr RSHIFT J  &hmr RCTRL K  &hmr RALT L  &hmr RGUI SEMI
-                        &kp LEFT_CONTROL  &kp Z     &kp X       &kp C        &kp V          &kp B            &kp N      &kp M        &kp COMMA    &kp DOT     &kp SLASH      &kp APOS
-                                                   &mt ESC DEL     &lt NAV TAB     &lt NUM BACKSPACE      &kp SPACE     &kp LSHIFT     &kp ENTER
+            &kp Q        &kp W        &kp E         &kp R            &kp T                &kp Y      &kp U          &kp I         &kp O        &kp P
+            &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHIFT F    &kp G                &kp H      &hmr RSHIFT J  &hmr RCTRL K  &hmr RALT L  &hmr RGUI SEMI
+&kp LSHIFT  &kp Z        &kp X        &kp C         &kp V            &kp B                &kp N      &kp M          &kp COMMA     &kp DOT      &kp SLASH       &kp APOS
+                                      &lt 2 TAB     &lt 1 BACKSPACE  &mt ESCAPE DELETE    &kp ENTER  &kp SPACE      &mo 5
             >;
         };
 
@@ -150,10 +174,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-            &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6  &kp N7     &kp N8            &kp N9             &kp NUMBER_0
-            &kp F11       &kp F12       &none         &none         &none           &kp MINUS     &kp EQUAL  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp NON_US_BACKSLASH
-&kp CAPSLOCK  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5          &kp F6        &kp F7     &kp F8            &kp F9             &kp F10               &kp GRAVE
-                                        &trans        &trans        &trans          &trans        &trans     &trans
+              &kp NUMBER_1      &kp NUMBER_2      &kp NUMBER_3      &kp NUMBER_4      &kp NUMBER_5    &kp NUMBER_6   &kp N7         &kp N8                &kp N9                 &kp NUMBER_0
+              &kp LS(NUMBER_1)  &kp LS(NUMBER_2)  &kp LS(NUMBER_3)  &kp LS(NUMBER_4)  &kp LS(N5)      &kp MINUS      &kp EQUAL      &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH
+&kp CAPSLOCK  &kp LS(NUMBER_6)  &kp LS(N7)        &kp LS(N8)        &kp LS(N9)        &kp LS(N0)      &kp LS(MINUS)  &kp LS(EQUAL)  &kp LS(LEFT_BRACKET)  &kp LS(RIGHT_BRACKET)  &kp LS(NON_US_BACKSLASH)  &mt LS(GRAVE) GRAVE
+                                                  &trans            &trans            &trans          &trans         &trans         &trans
             >;
         };
 
@@ -171,11 +195,12 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
             // Thumb notation is hold:
             // BT = Bluetooth layer 
+
             bindings = <
-        &none       &none              &kp UP_ARROW    &none              &kp HOME           &kp PG_UP      &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &msc SCRL_UP
-        &none       &kp LEFT           &kp DOWN        &kp RIGHT          &kp END            &kp PAGE_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN
-&trans  &kp K_PREV  &kp K_PLAY_PAUSE  &kp K_NEXT      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &none          &mkp MCLK       &mkp MB4        &mkp MB5         &msc SCRL_LEFT  &msc SCRL_RIGHT
-                                      &trans           &trans             &trans             &trans         &trans          &mo BT
+        &none       &none             &kp UP_ARROW  &none              &kp HOME           &kp PG_UP      &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &msc SCRL_UP
+        &none       &kp LEFT          &kp DOWN      &kp RIGHT          &kp END            &kp PAGE_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN
+&trans  &kp K_PREV  &kp K_PLAY_PAUSE  &kp K_NEXT    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &none          &mkp MCLK       &mkp MB4        &mkp MB5         &msc SCRL_LEFT  &msc SCRL_RIGHT
+                                      &trans        &trans             &trans             &trans         &trans          &trans
             >;
         };
 
@@ -200,15 +225,15 @@
             // Y position = clear all Bluetooth profiles
             // H position = clear only the currently selected Bluetooth profile
 
-          bindings = <
-      &cad_macro  &username_macro  &out OUT_USB  &out OUT_BLE  &none          &bt BT_CLR_ALL  &none   &none   &none   &bootloader
-      &bt BT_SEL 5  &bt BT_SEL 6   &bt BT_SEL 7  &bt BT_SEL 8  &bt BT_SEL 9   &bt BT_CLR      &none   &none   &none   &none
-&trans       &bt BT_SEL 0      &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3   &bt BT_SEL 4    &none   &none   &none   &none   &sys_reset  &studio_unlock
-                                      &trans  &trans        &trans         &trans          &trans  &trans
->;
-        }; 
+            bindings = <
+        &cad_macro    &username_macro  &out OUT_USB  &out OUT_BLE  &none           &bt BT_CLR_ALL  &none   &none   &none  &bootloader
+        &bt BT_SEL 5  &bt BT_SEL 6     &bt BT_SEL 7  &bt BT_SEL 8  &bt BT_SEL 9    &bt BT_CLR      &none   &none   &none  &none
+&trans  &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none           &none   &none   &none  &sys_reset   &studio_unlock
+                                       &trans        &trans        &trans          &trans          &trans  &trans
+            >;
+        };
 
-              game_layer {
+        game_layer {
             label = "GAME";
 
             //
@@ -236,10 +261,46 @@
             // - GAME toggle combo: DEL/ESC + ENTER physical thumbs.
 
             bindings = <
-                &kp Q       &kp W          &kp E          &kp R          &kp T          &kp N7       &kp N8       &kp N9       &kp N0       &kp ESC
-                &kp A       &kp S          &kp D          &kp F          &kp G          &kp N4       &kp N5       &kp N6       &kp I        &kp UP
-                &kp LSHIFT  &kp Z          &kp X          &kp C          &kp V      &kp B          &kp N1       &kp N2       &kp N3       &kp LEFT     &kp DOWN     &kp RIGHT
-                                                                  &kp LCTRL    &kp BACKSPACE &kp SPACE      &kp ENTER    &kp LALT     &kp DEL
+            &kp Q  &kp W  &kp E      &kp R          &kp T        &kp N7     &kp N8    &kp N9   &kp N0    &kp ESC
+            &kp A  &kp S  &kp D      &kp F          &kp G        &kp N4     &kp N5    &kp N6   &kp I     &kp UP
+&kp LSHIFT  &kp Z  &kp X  &kp C      &kp V          &kp B        &kp N1     &kp N2    &kp N3   &kp LEFT  &kp DOWN  &kp RIGHT
+                          &kp LCTRL  &kp BACKSPACE  &kp SPACE    &kp ENTER  &kp LALT  &kp DEL
+            >;
+        };
+
+        function {
+            bindings = <
+        &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F11
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &kp F12
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        Dvorak {
+            bindings = <
+        &kp APOS         &kp COMMA        &kp DOT              &kp P              &kp Y     &kp F   &kp G               &kp C                 &kp R             &kp L
+        &hml LEFT_GUI A  &hml LEFT_ALT O  &hml LEFT_CONTROL E  &hml LEFT_SHIFT U  &kp I     &kp D   &hmr RIGHT_SHIFT H  &hmr RIGHT_CONTROL T  &hmr RIGHT_ALT N  &hmr RIGHT_GUI S
+&trans  &kp SEMI         &kp Q            &kp J                &kp K              &kp X     &kp B   &kp M               &kp W                 &kp V             &kp Z             &trans
+                                          &trans               &trans             &trans    &trans  &trans              &trans
+            >;
+        };
+
+        Colemak {
+            bindings = <
+        &kp Q            &kp W                &kp F            &kp P              &kp G     &kp J   &kp L               &kp U                 &kp Y             &kp SEMI
+        &hml LEFT_GUI A  &hml LEFT_CONTROL R  &hml LEFT_ALT S  &hml LEFT_SHIFT T  &kp D     &kp H   &hmr RIGHT_SHIFT N  &hmr RIGHT_CONTROL E  &hmr RIGHT_ALT I  &hmr RIGHT_GUI O
+&trans  &kp Z            &kp X                &kp C            &kp V              &kp B     &kp K   &kp M               &kp COMMA             &kp DOT           &kp FSLH          &trans
+                                              &trans           &trans             &trans    &trans  &trans              &trans
+            >;
+        };
+
+        workman {
+            bindings = <
+        &kp Q            &kp D            &kp R                &kp W              &kp B     &kp J   &kp F               &kp U                 &kp P             &kp SEMI
+        &hml LEFT_GUI A  &hml LEFT_ALT S  &hml LEFT_CONTROL H  &hml LEFT_SHIFT T  &kp G     &kp Y   &hml RIGHT_SHIFT N  &hmr RIGHT_CONTROL E  &hmr RIGHT_ALT O  &hmr RIGHT_GUI I
+&trans  &kp Z            &kp X            &kp M                &kp C              &kp V     &kp K   &kp L               &kp COMMA             &kp DOT           &kp FSLH          &trans
+                                          &trans               &trans             &trans    &trans  &trans              &trans
             >;
         };
     };
