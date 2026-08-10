@@ -128,7 +128,7 @@
             #binding-cells = <0>;
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings = <&kp N1 &kp N0 &kp DOT &kp LS(Y) &kp O &kp J &kp I &kp M &kp B &kp O>;
+            bindings = <&kp N1 &kp NUMBER_1 &kp DOT &kp LS(Y) &kp O &kp J &kp I &kp M &kp B &kp O>;
         };
     };
 
