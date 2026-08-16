@@ -215,21 +215,21 @@
             >;
         };
         game_layer {
-            label = "GAME";
-        
-            bindings = <
-                &kp Q      &kp W          &kp E      &kp R      &kp T
-                &kp N7     &kp N8         &kp N9     &kp N0     &kp ESC
-        
-                &kp A      &kp S          &kp D      &kp F      &kp G
-                &kp N4     &kp N5         &kp N6     &kp I      &kp UP
-        
-                &kp LSHIFT &kp Z          &kp X      &kp C      &kp V      &kp B
-                &kp N1     &kp N2         &kp N3     &kp LEFT   &kp DOWN   &kp RIGHT
-        
-                &kp LCTRL  &kp BACKSPACE  &kp SPACE
-                &kp ENTER  &kp LALT       &kp DEL
-            >;
-        };
+    label = "GAME";
+
+    bindings = <
+        &kp TAB     &kp Q      &kp W      &kp E      &kp R
+        &kp N7      &kp N8     &kp N9     &kp N0     &kp ESC
+
+        &kp LSHIFT  &kp A      &kp S      &kp D      &kp F
+        &kp N4      &kp N5     &kp N6     &kp I      &kp UP
+
+        &kp LCTRL   &kp C      &kp X      &kp Z      &kp V      &kp G
+        &kp N1      &kp N2     &kp N3     &kp LEFT   &kp DOWN   &kp RIGHT
+
+        &kp ESC     &kp LALT   &kp SPACE
+        &kp ENTER   &kp LALT   &kp DEL
+    >;
+};
     };
 };
