@@ -13,11 +13,12 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 15
 #include <dt-bindings/zmk/pointing.h>
 
-#define BASE   0
-#define MOUSE  1
-#define NAV    2
+#define BASE 0
+#define MOUSE 1
+#define NAV 2
 #define SYMBOL 3
-#define BT     4
+#define BT 4
+#define GAME 5
 
 /* Match the 170 ms tap-dance timing used by the wired Vial keymap. */
 &mt {
@@ -59,15 +60,23 @@
     };
 
     combos {
-        compatible = "zmk,combos";
+    compatible = "zmk,combos";
 
-        /* Wired Vial combo: Q + W types macro M0 (11.Yojimbo). */
-        combo_username {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&username_macro>;
-        };
+    /* Q + W types username macro. */
+    combo_username {
+        timeout-ms = <50>;
+        key-positions = <0 1>;
+        bindings = <&username_macro>;
     };
+
+    /* A + S + D + F toggles GAME layer on/off. */
+    combo_game_toggle {
+        timeout-ms = <120>;
+        key-positions = <10 11 12 13>;
+        layers = <BASE GAME>;
+        bindings = <&tog GAME>;
+    };
+};
 
     macros {
         username_macro: username_macro {
@@ -203,6 +212,23 @@
                 &bt BT_SEL 5 &bt BT_SEL 6     &bt BT_SEL 7  &bt BT_SEL 8 &bt BT_SEL 9   &bt BT_CLR      &none   &none   &none   &none
                 &trans       &bt BT_SEL 0     &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3   &bt BT_SEL 4    &none   &none   &none   &none   &sys_reset  &studio_unlock
                                               &trans         &trans       &trans          &trans          &trans  &trans
+            >;
+        };
+        game_layer {
+            label = "GAME";
+        
+            bindings = <
+                &kp Q      &kp W          &kp E      &kp R      &kp T
+                &kp N7     &kp N8         &kp N9     &kp N0     &kp ESC
+        
+                &kp A      &kp S          &kp D      &kp F      &kp G
+                &kp N4     &kp N5         &kp N6     &kp I      &kp UP
+        
+                &kp LSHIFT &kp Z          &kp X      &kp C      &kp V      &kp B
+                &kp N1     &kp N2         &kp N3     &kp LEFT   &kp DOWN   &kp RIGHT
+        
+                &kp LCTRL  &kp BACKSPACE  &kp SPACE
+                &kp ENTER  &kp LALT       &kp DEL
             >;
         };
     };
